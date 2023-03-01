@@ -4,8 +4,11 @@
     "parcel": "^2.0.0-rc.0"
   },
   "scripts": {
-    "dev": "parcel serve ./src/index.html --port 8080",
+    "dev": "parcel serve ./src/index.html --port 80",
     "build": "parcel build ./src/index.html --dist-dir build --public-url https://seba-campo.github.io/desafio-m5/",
     "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "@parcel/transformer-image": "2.0.0-rc.0"
   }
 }

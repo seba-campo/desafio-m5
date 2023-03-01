@@ -72,11 +72,8 @@ export const state = {
   },
   generateComputerPlay() {
     const posibilities = ["piedra", "papel", "tijera"];
-
     const nroRandom = Math.floor(Math.random() * (3 - 0) + 0);
-
     console.log(posibilities[nroRandom]);
-
     return posibilities[nroRandom];
   },
 };
