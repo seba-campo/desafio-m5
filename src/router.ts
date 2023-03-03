@@ -1,5 +1,6 @@
 // importar las paginas
 import { initWelcome } from "./pages/welcome";
+import { initInstructions } from "./pages/instructions";
 // lista de rutas
 const routes = [
   {
@@ -7,8 +8,8 @@ const routes = [
     page: initWelcome,
   },
   {
-    path: /\/step-1/,
-    // page: initStepOne,
+    path: /\/instructions/,
+    page: initInstructions,
   },
   {
     path: /\/thankyou/,
@@ -18,7 +19,7 @@ const routes = [
 
 export function initRouter(container: any) {
   //   si el pathname es /, redirije al welcome
-  if (location.pathname == "/") {
+  if (location.pathname == "/desafio-m5/" || location.pathname == "/") {
     goTo("/welcome");
   }
 
