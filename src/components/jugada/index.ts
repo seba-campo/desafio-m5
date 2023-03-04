@@ -16,24 +16,37 @@ export function playElement() {
 
       if (selection == "piedra") {
         rootDiv.innerHTML = `
-            <img src=${require("url:../../img/piedra.png")} class="play-choice">
+        <div class="item">
+          <img src=${require("url:../../img/piedra.svg")} class="play-choice">
+        </div>
         `;
       }
       if (selection == "papel") {
         rootDiv.innerHTML = `
-        <img src=${require("url:../../img/papel.png")} class="play-choice">
+        <div class="item">
+          <img src=${require("url:../../img/papel.svg")} class="play-choice">
+          </div>
     `;
       }
       if (selection == "tijera") {
         rootDiv.innerHTML = `
-        <img src=${require("url:../../img/tijera.png")} class="play-choice">
+        <div class="item">
+          <img src=${require("url:../../img/tijera.svg")} class="play-choice">
+        </div>
     `;
       }
 
       style.textContent = `
+            .item{
+              display: flex;
+              flex-direction: column;
+              justify-items: flex-end;
+              margin: 0px 25px;
+            }
+
             .play-choice{
-                height: 170px;
-                margin: 0px 10px;
+                height: 200px;
+                margin: 0px 10px;              
             }
         `;
 

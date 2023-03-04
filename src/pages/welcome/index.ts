@@ -2,7 +2,7 @@ export function initWelcome(param) {
   const initialDiv = document.createElement("div");
   const style = document.createElement("style");
 
-  const backgroundURL = require("url:../../img/fondo.png");
+  const backgroundURL = require("url:../../img/fondo.svg");
 
   initialDiv.innerHTML = `
         <div class="welcome-main-frame">
@@ -10,14 +10,16 @@ export function initWelcome(param) {
                 <h1 class="page-title">Piedra Papel ó Tijera</h1>
             </div>
             <div>
-              <custom-button text="Comenzar"></custom-button>
+              <custom-button text="Comenzar" class="button"></custom-button>
             </div>
             <div class="play-div">
+             
                 <play-selection selection="piedra"></play-selection>
 
                 <play-selection selection="papel"></play-selection>
 
                 <play-selection selection="tijera"></play-selection>
+              
             </div>
         </div>
     `;
@@ -34,23 +36,31 @@ export function initWelcome(param) {
         }
 
         .page-title{
-          font-size: 65px;
+          width: 25vw;
+          height: 45vh;
+          margin: 45px 0 0 0;
+          font-size: 98px;
           color: #009048;
         }
 
         .play-div{
+          height: 150px;
           display: flex;
           align-items: flex-end;
           justify-content: space-around;
+        }
+
+        .item{
+          width: 150px;
         }
     `;
 
   initialDiv.appendChild(style);
 
-  // const button = initialDiv.querySelector(".button");
-  // button.addEventListener("click", () => {
-  //   param.goTo("/instructions");
-  // });
+  const button = initialDiv.querySelector(".button");
+  button.addEventListener("click", () => {
+    param.goTo("/instructions");
+  });
 
   return initialDiv;
 }
