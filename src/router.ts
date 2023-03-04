@@ -1,6 +1,7 @@
 // importar las paginas
 import { initWelcome } from "./pages/welcome";
 import { initInstructions } from "./pages/instructions";
+import { initPlay } from "./pages/play";
 // lista de rutas
 const routes = [
   {
@@ -12,8 +13,8 @@ const routes = [
     page: initInstructions,
   },
   {
-    path: /\/thankyou/,
-    // page: initThankYou,
+    path: /\/play/,
+    page: initPlay,
   },
 ];
 

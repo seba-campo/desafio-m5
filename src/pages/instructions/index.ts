@@ -1,7 +1,6 @@
 export function initInstructions(param) {
   const initialDiv = document.createElement("div");
   const style = document.createElement("style");
-
   const backgroundURL = require("url:../../img/fondo.svg");
 
   initialDiv.innerHTML = `
@@ -52,10 +51,10 @@ export function initInstructions(param) {
 
   initialDiv.appendChild(style);
 
-  // const button = initialDiv.querySelector(".button");
-  // button.addEventListener("click", () => {
-  //   param.goTo("/instructions");
-  // });
+  const button = initialDiv.querySelector(".button");
+  button.addEventListener("click", () => {
+    param.goTo("/play");
+  });
 
   return initialDiv;
 }
