@@ -9,20 +9,25 @@ export function timerComponent() {
       const shadow = this.attachShadow({ mode: "open" });
       const rootDiv = document.createElement("div");
       const style = document.createElement("style");
-      var t = 1;
+      var t = 3;
       var timer = setInterval(() => {
         console.log(t);
-        t++;
-        if (t > 5) {
+        rootDiv.innerHTML = `<h1 class="counter-time">${t}</h1>`;
+        --t;
+        if (t < 1) {
           clearInterval(timer);
         }
-
-        rootDiv.innerHTML = `<h1 class="counter-time">${t - 1}</h1>`;
       }, 1000);
 
       style.textContent = `
             .counter-time{ 
                 font-size: 66px;
+                animation: fadeIn 0.5s; 
+                margin: 100px 0;
+            }
+            @keyframes fadeIn {
+              0% { opacity: 0; }
+              100% { opacity: 1; }
             }
         `;
 

@@ -25,9 +25,10 @@ export function playElement() {
         rootDiv.innerHTML = `
         <div class="item">
           <img src=${require("url:../../img/papel.svg")} class="play-choice">
-          </div>
+        </div>
     `;
       }
+
       if (selection == "tijera") {
         rootDiv.innerHTML = `
         <div class="item">
@@ -41,12 +42,13 @@ export function playElement() {
               display: flex;
               flex-direction: column;
               justify-items: flex-end;
-              margin: 0px 25px;
+              margin: 0px 0px;
+              height: 100px;
             }
 
             .play-choice{
-                height: 200px;
-                margin: 0px 10px;              
+                width: 30vw;
+                margin: 0px 0px;              
             }
         `;
 
