@@ -13,6 +13,10 @@ export const state = {
     history: [{ myPlay: "tijera", computerPlay: "tijera" }],
   },
   listeners: [],
+  subscribe(callback: (any) => any) {
+    // recibe callbacks para ser avisados posteriormente
+    this.listeners.push(callback);
+  },
   getState() {
     //   Retorna el JSON state en su última version del LOCAL
     const currentState = localStorage.getItem("currentState");
@@ -78,8 +82,8 @@ export const state = {
   },
 };
 
-state.setMove("papel");
+// state.setMove("papel");
 
-const jugada = state.getState().currentGame;
+// const jugada = state.getState().currentGame;
 
-console.log(state.whoWins(jugada.myPlay, jugada.computerPlay));
+// console.log(state.whoWins(jugada.myPlay, jugada.computerPlay));

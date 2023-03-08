@@ -6,18 +6,20 @@ export function initPlay(param) {
 
   initialDiv.innerHTML = `
         <div class="playground-div">
+            <div class="computer-play">
+              <play-selection selection="piedra" class="enabled "></play-selection>
+            </div>
+
             <div>
                 <timer-el></timer-el>
             </div>
 
             <div class="play-div">
-                   
                 <play-selection selection="piedra" class="disabled" id="piedra"></play-selection>
       
                 <play-selection selection="papel" class="disabled" id="papel"></play-selection>
       
                 <play-selection selection="tijera" class="disabled" id="tijera"></play-selection>
-                    
             </div>
         </div>
     `;
@@ -28,12 +30,18 @@ export function initPlay(param) {
 
   piedraEl.addEventListener("click", function () {
     this.classList.replace("disabled", "enabled");
+    papelEl.classList.replace("enabled", "disabled");
+    tijeraEl.classList.replace("enabled", "disabled");
   });
   papelEl.addEventListener("click", function () {
     this.classList.replace("disabled", "enabled");
+    tijeraEl.classList.replace("enabled", "disabled");
+    piedraEl.classList.replace("enabled", "disabled");
   });
   tijeraEl.addEventListener("click", function () {
     this.classList.replace("disabled", "enabled");
+    papelEl.classList.replace("enabled", "disabled");
+    piedraEl.classList.replace("enabled", "disabled");
   });
 
   style.textContent = `
@@ -63,6 +71,14 @@ export function initPlay(param) {
                 display: flex;
                 align-items: flex-end;
                 justify-content: space-around;
+              }
+
+              .computer-play{
+                transform: rotate(180deg)
+              }
+
+              .finished{
+                display: none;
               }
           `;
 

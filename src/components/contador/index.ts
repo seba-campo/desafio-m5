@@ -16,6 +16,9 @@ export function timerComponent() {
         --t;
         if (t < 1) {
           clearInterval(timer);
+          setTimeout(() => {
+            this.classList.add("finished");
+          }, 1000);
         }
       }, 1000);
 

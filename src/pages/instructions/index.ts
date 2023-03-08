@@ -34,7 +34,7 @@ export function initInstructions(param) {
         width: 45vw;
         height: 45vh;
         margin: 25px 0 0 0;
-        font-size: 55px;
+        font-size: 40px;
       }
 
       .play-div{
@@ -45,7 +45,7 @@ export function initInstructions(param) {
       }
 
       .item{
-        width: 150px;
+        width: 130px;
       }
   `;
 

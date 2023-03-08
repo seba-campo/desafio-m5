@@ -39,7 +39,7 @@ export function initWelcome(param) {
           width: 25vw;
           height: 45vh;
           margin: 45px 0 0 0;
-          font-size: 98px;
+          font-size: 80px;
           color: #009048;
         }
 
@@ -51,7 +51,7 @@ export function initWelcome(param) {
         }
 
         .item{
-          width: 150px;
+          width: 130px;
         }
     `;
 

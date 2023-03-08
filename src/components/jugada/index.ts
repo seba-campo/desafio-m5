@@ -1,3 +1,5 @@
+import { state } from "../../state";
+
 export function playElement() {
   type Election = "piedra" | "papel" | "tijera";
 
@@ -6,7 +8,12 @@ export function playElement() {
     constructor() {
       super(), this.render();
     }
-    connectedCallback() {}
+    connectedCallback() {
+      this.addEventListener("click", function () {
+        const selection = this.getAttribute("selection") as Election;
+        state.setMove(selection);
+      });
+    }
     render() {
       const shadow = this.attachShadow({ mode: "open" });
       const rootDiv = document.createElement("div");
