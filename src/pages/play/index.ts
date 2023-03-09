@@ -1,13 +1,16 @@
+import { state } from "../../state";
 export function initPlay(param) {
   const initialDiv = document.createElement("div");
   const style = document.createElement("style");
 
   const backgroundURL = require("url:../../img/fondo.svg");
 
+  const computerPlay = state.generateComputerPlay();
+
   initialDiv.innerHTML = `
         <div class="playground-div">
             <div class="computer-play">
-              <play-selection selection="piedra" class="enabled "></play-selection>
+              <play-selection selection="${computerPlay}" class="off enabled" id="computer-play"></play-selection>
             </div>
 
             <div>
@@ -77,10 +80,45 @@ export function initPlay(param) {
                 transform: rotate(180deg)
               }
 
+              .off{
+                display: none;
+              }
+
+              .on{
+                display: inherit;
+              }
+
               .finished{
                 display: none;
               }
           `;
+
+  var timerPlay = setInterval(() => {
+    const piedraSel = piedraEl.classList.contains("enabled");
+    const papelSel = papelEl.classList.contains("enabled");
+    const tijeraSel = tijeraEl.classList.contains("enabled");
+
+    // const choice = [piedraSel, papelSel, tijeraSel];
+
+    if (piedraSel) {
+      piedraEl.classList.add("choosen");
+      papelEl.classList.add("off");
+      tijeraEl.classList.add("off");
+    }
+    if (papelSel) {
+      papelEl.classList.add("choosen");
+      piedraEl.classList.add("off");
+      tijeraEl.classList.add("off");
+    }
+    if (tijeraSel) {
+      tijeraEl.classList.add("choosen");
+      piedraEl.classList.add("off");
+      papelEl.classList.add("off");
+    }
+
+    const computerPlay = document.querySelector("#computer-play");
+    computerPlay.classList.replace("off", "on");
+  }, 5000);
 
   initialDiv.appendChild(style);
 

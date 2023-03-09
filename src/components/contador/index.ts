@@ -4,12 +4,13 @@ export function timerComponent() {
       super();
       this.render();
     }
-
+    connectedCallback() {}
     render() {
       const shadow = this.attachShadow({ mode: "open" });
       const rootDiv = document.createElement("div");
       const style = document.createElement("style");
       var t = 3;
+
       var timer = setInterval(() => {
         console.log(t);
         rootDiv.innerHTML = `<h1 class="counter-time">${t}</h1>`;
@@ -17,6 +18,7 @@ export function timerComponent() {
         if (t < 1) {
           clearInterval(timer);
           setTimeout(() => {
+            console.log(this);
             this.classList.add("finished");
           }, 1000);
         }
@@ -28,6 +30,7 @@ export function timerComponent() {
                 animation: fadeIn 0.5s; 
                 margin: 100px 0;
             }
+
             @keyframes fadeIn {
               0% { opacity: 0; }
               100% { opacity: 1; }
