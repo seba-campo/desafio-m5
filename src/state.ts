@@ -11,6 +11,10 @@ export const state = {
       computerPlay: "",
     },
     history: [{ myPlay: "tijera", computerPlay: "tijera" }],
+    results: {
+      computer: 0,
+      player: 0,
+    },
   },
   listeners: [],
   subscribe(callback: (any) => any) {
@@ -23,15 +27,18 @@ export const state = {
 
     return JSON.parse(currentState);
   },
+  setState(newState) {
+    localStorage.setItem("currentState", JSON.stringify(newState));
+  },
   setMove(move: Jugada) {
     const currentState = this.getState();
+
     // Agrego ambas jugadas al currentState
     currentState.currentGame.myPlay = move;
     currentState.currentGame.computerPlay = this.generateComputerPlay();
 
     // Pusheo la jugada actual al historial
-    this.pushToHistoy(currentState.currentGame);
-    console.log(currentState.history);
+    currentState.history.push(currentState.currentGame);
 
     // aplico cambios al local storage
     localStorage.setItem("currentState", JSON.stringify(currentState));
@@ -40,10 +47,6 @@ export const state = {
     for (var cb of this.listeners) {
       cb(currentState);
     }
-  },
-  pushToHistoy(play: Game) {
-    const currentState = this.getState();
-    currentState.history.push(play);
   },
   whoWins(myPlay: Jugada, computerPlay: Jugada) {
     const ganeConTijeras = myPlay == "tijera" && computerPlay == "papel";
@@ -64,14 +67,16 @@ export const state = {
       computerGanoPiedra,
     ].includes(true);
 
+    // var results = {
+    //   computer: 0,
+    //   player: 0,
+    // };
+
     if (playerWins) {
-      return "You Win";
+      return true;
     }
     if (computerWins) {
-      return "Computer wins";
-    }
-    if (!computerWins && !playerWins) {
-      return "Empate";
+      return false;
     }
   },
   generateComputerPlay() {
@@ -80,6 +85,7 @@ export const state = {
     // console.log(posibilities[nroRandom]);
     return posibilities[nroRandom];
   },
+  resultsToThisTime() {},
 };
 
 // state.setMove("papel");

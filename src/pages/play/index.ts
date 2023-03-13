@@ -1,4 +1,6 @@
 import { state } from "../../state";
+import { initRouter } from "../../router";
+
 export function initPlay(param) {
   const initialDiv = document.createElement("div");
   const style = document.createElement("style");
@@ -118,7 +120,28 @@ export function initPlay(param) {
 
     const computerPlay = document.querySelector("#computer-play");
     computerPlay.classList.replace("off", "on");
+
+    clearInterval(timerPlay);
   }, 5000);
+
+  var timerResults = setInterval(() => {
+    // const piedraChosen = piedraEl.classList.contains("enabled");
+    // const papelChosen = papelEl.classList.contains("enabled");
+    // const tijeraChosen = tijeraEl.classList.contains("enabled");
+
+    // if (piedraChosen) {
+    //   state.setMove("piedra");
+    // }
+    // if (papelChosen) {
+    //   state.setMove("papel");
+    // }
+    // if (tijeraChosen) {
+    //   state.setMove("tijera");
+    // }
+
+    param.goTo("/results");
+    clearInterval(timerResults);
+  }, 7500);
 
   initialDiv.appendChild(style);
 

@@ -2,6 +2,7 @@
 import { initWelcome } from "./pages/welcome";
 import { initInstructions } from "./pages/instructions";
 import { initPlay } from "./pages/play";
+import { initResults } from "./pages/results";
 // lista de rutas
 const routes = [
   {
@@ -15,6 +16,10 @@ const routes = [
   {
     path: /\/play/,
     page: initPlay,
+  },
+  {
+    path: /\/results/,
+    page: initResults,
   },
 ];
 

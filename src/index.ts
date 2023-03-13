@@ -2,6 +2,7 @@
 import { customButton } from "./components/button";
 import { playElement } from "./components/jugada";
 import { timerComponent } from "./components/contador";
+import { scoreEl } from "./components/score";
 // Functions
 import { initRouter } from "./router";
 
@@ -12,4 +13,5 @@ import { initRouter } from "./router";
   customButton();
   playElement();
   timerComponent();
+  scoreEl();
 })();
