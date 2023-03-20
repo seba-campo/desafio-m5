@@ -5,9 +5,26 @@ export function initPlay(param) {
   const initialDiv = document.createElement("div");
   const style = document.createElement("style");
 
+  const initLocalState = state.getState();
+
+  //Si no existe state en el storage lo inicializo
+  if (initLocalState == undefined || initLocalState == null) {
+    const initialState = {
+      currentGame: { myPlay: "undefined", computerPlay: "undefined" },
+      history: [],
+      points: {
+        computer: 0,
+        player: 0,
+      },
+    };
+    console.log("inicializado el state");
+
+    state.setState(initialState);
+  }
+
   const backgroundURL = require("url:../../img/fondo.svg");
 
-  const computerPlay = state.generateComputerPlay();
+  var computerPlay = state.generateComputerPlay();
 
   initialDiv.innerHTML = `
         <div class="playground-div">
@@ -100,8 +117,6 @@ export function initPlay(param) {
     const papelSel = papelEl.classList.contains("enabled");
     const tijeraSel = tijeraEl.classList.contains("enabled");
 
-    // const choice = [piedraSel, papelSel, tijeraSel];
-
     if (piedraSel) {
       piedraEl.classList.add("choosen");
       papelEl.classList.add("off");
@@ -118,27 +133,31 @@ export function initPlay(param) {
       papelEl.classList.add("off");
     }
 
-    const computerPlay = document.querySelector("#computer-play");
-    computerPlay.classList.replace("off", "on");
+    const piedraChosen = piedraEl.classList.contains("chosen");
+    const papelChosen = papelEl.classList.contains("chosen");
+    const tijeraChosen = tijeraEl.classList.contains("chosen");
+
+    if (piedraChosen) {
+      state.setMove("piedra");
+    }
+    if (papelChosen) {
+      state.setMove("papel");
+    }
+    if (tijeraChosen) {
+      state.setMove("tijera");
+    }
 
     clearInterval(timerPlay);
   }, 5000);
 
+  const showPlay = setInterval(() => {
+    const computerPlayEl = document.querySelector("#computer-play");
+    computerPlayEl.classList.replace("off", "on");
+
+    clearInterval(showPlay);
+  }, 5100);
+
   var timerResults = setInterval(() => {
-    // const piedraChosen = piedraEl.classList.contains("enabled");
-    // const papelChosen = papelEl.classList.contains("enabled");
-    // const tijeraChosen = tijeraEl.classList.contains("enabled");
-
-    // if (piedraChosen) {
-    //   state.setMove("piedra");
-    // }
-    // if (papelChosen) {
-    //   state.setMove("papel");
-    // }
-    // if (tijeraChosen) {
-    //   state.setMove("tijera");
-    // }
-
     param.goTo("/results");
     clearInterval(timerResults);
   }, 7500);

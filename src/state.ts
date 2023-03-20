@@ -35,7 +35,7 @@ export const state = {
 
     // Agrego ambas jugadas al currentState
     currentState.currentGame.myPlay = move;
-    currentState.currentGame.computerPlay = this.generateComputerPlay();
+    // currentState.currentGame.computerPlay = this.generateComputerPlay();
 
     // Pusheo la jugada actual al historial
     currentState.history.push(currentState.currentGame);
@@ -82,14 +82,6 @@ export const state = {
   generateComputerPlay() {
     const posibilities = ["piedra", "papel", "tijera"];
     const nroRandom = Math.floor(Math.random() * (3 - 0) + 0);
-    // console.log(posibilities[nroRandom]);
     return posibilities[nroRandom];
   },
-  resultsToThisTime() {},
 };
-
-// state.setMove("papel");
-
-// const jugada = state.getState().currentGame;
-
-// console.log(state.whoWins(jugada.myPlay, jugada.computerPlay));

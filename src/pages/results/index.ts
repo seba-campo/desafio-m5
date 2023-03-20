@@ -16,6 +16,8 @@ export function initResults(param) {
   var playerScore = 0;
   var computerScore = 0;
 
+  var won = true;
+
   console.log(history);
   for (let play of history) {
     // console.log(state.whoWins(play.myPlay, play.computerPlay));
@@ -25,6 +27,7 @@ export function initResults(param) {
     }
     if (!won) {
       computerScore++;
+      won = false;
     }
     if (won == undefined) {
       console.log("Enri puto");

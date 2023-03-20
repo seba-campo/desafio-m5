@@ -6,23 +6,6 @@ export function initWelcome(param) {
 
   const backgroundURL = require("url:../../img/fondo.svg");
 
-  const initLocalState = state.getState();
-
-  //Si no existe state en el storage lo inicializo
-  if (initLocalState == undefined || initLocalState == null) {
-    const initialState = {
-      currentGame: { myPlay: "", computerPlay: "" },
-      history: [],
-      points: {
-        computer: 0,
-        player: 0,
-      },
-    };
-    console.log("inicializado el state");
-
-    state.setState(initialState);
-  }
-
   initialDiv.innerHTML = `
         <div class="welcome-main-frame">
             <div>

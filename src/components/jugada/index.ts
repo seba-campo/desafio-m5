@@ -11,7 +11,8 @@ export function playElement() {
     connectedCallback() {
       this.addEventListener("click", function () {
         const selection = this.getAttribute("selection") as Election;
-        state.setMove(selection);
+        // const cs = state.getState();
+        // cs.currentGame.computerPlay = selection;
       });
     }
     render() {
