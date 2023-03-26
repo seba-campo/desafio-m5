@@ -6,10 +6,12 @@ export function initInstructions(param) {
   initialDiv.innerHTML = `
           <div class="welcome-main-frame">
             <div class="page-title">
-                <h3>Presioná jugar y elegí: piedra, papel o tijera antes de que pasen los 3 segundos.</h3>
+                <h3 class="title-h3">Presioná jugar y elegí: piedra, papel o tijera antes de que pasen los 3 segundos.</h3>
             </div>
 
-            <custom-button text="Jugar!" class="button"></custom-button>
+            <div class="button-div">
+              <custom-button text="Jugar!" class="button"></custom-button>
+            </div>
               
             <div class="play-div">
                 <play-selection selection="piedra"></play-selection>
@@ -25,34 +27,39 @@ export function initInstructions(param) {
           background-image: url(${backgroundURL});
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: space-around;
           align-items: center;
           height: 100vh;
       }
 
+      .title-h3{
+        margin: 0;
+      }
+
       .page-title{
-        width: 45vw;
-        height: 45vh;
-        margin: 25px 0 0 0;
+        width: 55vw;
+        height: 30vh;
         font-size: 40px;
       }
       @media(min-width: 768px){
         .page-title{
-          height: 15vh;
+          height: 35vh;
           margin: 20px 0;
-          font-size: 95px;
+          font-size: 66px;
         }
       }
 
+      .button-div{}
+
       .play-div{
-        height: 150px;
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
         justify-content: space-around;
       }
       @media(min-width: 768px){
         .play-div{
-          height: 350px;  
+          position: relative;
+          top: -200px;
         }
       }
 

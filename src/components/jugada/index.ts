@@ -11,8 +11,6 @@ export function playElement() {
     connectedCallback() {
       this.addEventListener("click", function () {
         const selection = this.getAttribute("selection") as Election;
-        // const cs = state.getState();
-        // cs.currentGame.computerPlay = selection;
       });
     }
     render() {
@@ -56,7 +54,16 @@ export function playElement() {
 
             .play-choice{
                 width: 30vw;
-                margin: 0px 0px;              
+                margin: 0px 0px;   
+                position: relative;   
+                top: -100px      
+            }
+            @media(min-width: 768px){
+              .play-choice{
+                width: 15vw;
+                position: relative;
+                top: 90px;
+              }
             }
         `;
 

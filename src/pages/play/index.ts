@@ -33,15 +33,32 @@ export function initPlay(param) {
         height: 100vh;
     }
 
+    @media(min-width:768px){
+      play-selection{
+        width: 250px;
+      }
+    }
+    
+
     .disabled{
       position: relative;
       top: -90px;
       opacity: 45%;
     }
+    @media(min-width: 768px){
+      .disabled{
+        top: -240px;
+      }
+    }
 
     .enabled{
       position: relative;
-      top: -150px;
+      top: -120px;
+    }
+    @media(min-width: 768px){
+      .enabled{
+        top: -290px;
+      }
     }
 
     .play-div{
@@ -55,6 +72,11 @@ export function initPlay(param) {
       transform: rotate(180deg);
       position: relative;
       top: 140px;
+    }
+    @media(min-width: 768px){
+      .computer-play{
+        top: 580px;
+      }
     }
 
     .off{
