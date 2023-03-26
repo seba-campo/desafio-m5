@@ -36,6 +36,13 @@ export function initInstructions(param) {
         margin: 25px 0 0 0;
         font-size: 40px;
       }
+      @media(min-width: 768px){
+        .page-title{
+          height: 15vh;
+          margin: 20px 0;
+          font-size: 95px;
+        }
+      }
 
       .play-div{
         height: 150px;
@@ -43,9 +50,19 @@ export function initInstructions(param) {
         align-items: flex-end;
         justify-content: space-around;
       }
+      @media(min-width: 768px){
+        .play-div{
+          height: 350px;  
+        }
+      }
 
       .item{
         width: 130px;
+      }
+      @media(min-width: 768px){
+        .item{
+          height: 400px;
+        }
       }
   `;
 

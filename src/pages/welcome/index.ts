@@ -16,11 +16,11 @@ export function initWelcome(param) {
             </div>
             <div class="play-div">
              
-                <play-selection selection="piedra"></play-selection>
+                <play-selection selection="piedra" class="item"></play-selection>
 
-                <play-selection selection="papel"></play-selection>
+                <play-selection selection="papel" class="item"></play-selection>
 
-                <play-selection selection="tijera"></play-selection>
+                <play-selection selection="tijera" class="item"></play-selection>
               
             </div>
         </div>
@@ -44,6 +44,13 @@ export function initWelcome(param) {
           font-size: 80px;
           color: #009048;
         }
+        @media(min-width: 768px){
+          .page-title{
+            height: 15vh;
+            margin: 20px 0;
+            font-size: 95px;
+          }
+        }
 
         .play-div{
           height: 150px;
@@ -51,9 +58,16 @@ export function initWelcome(param) {
           align-items: flex-end;
           justify-content: space-around;
         }
+        @media(min-width: 768px){
+          .play-div{
+            height: 350px;  
+          }
+        }
 
-        .item{
-          width: 130px;
+        @media(min-width: 768px){
+          .item{
+            height: 400px;
+          }
         }
     `;
 

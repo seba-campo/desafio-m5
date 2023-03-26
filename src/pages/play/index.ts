@@ -52,7 +52,9 @@ export function initPlay(param) {
     }
 
     .computer-play{
-      transform: rotate(180deg)
+      transform: rotate(180deg);
+      position: relative;
+      top: 140px;
     }
 
     .off{
