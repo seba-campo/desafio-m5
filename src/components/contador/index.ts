@@ -12,13 +12,11 @@ export function timerComponent() {
       var t = 3;
 
       var timer = setInterval(() => {
-        console.log(t);
         rootDiv.innerHTML = `<h1 class="counter-time">${t}</h1>`;
         --t;
         if (t < 1) {
           clearInterval(timer);
           setTimeout(() => {
-            console.log(this);
             this.classList.add("finished");
           }, 1000);
         }

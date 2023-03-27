@@ -55,6 +55,8 @@ export function initInstructions(param) {
         display: flex;
         align-items: flex-start;
         justify-content: space-around;
+        position: relative;
+        top: 70px;
       }
       @media(min-width: 768px){
         .play-div{

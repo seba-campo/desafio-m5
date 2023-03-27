@@ -76,6 +76,11 @@ export function scoreEl() {
             border-radius: 7px;
             width: 40vw;
           }
+          @media(min-width: 768px){
+            .score-box{
+              width: 15vw;
+            }
+          }
 
           .score-title{
             font-size: 46px;

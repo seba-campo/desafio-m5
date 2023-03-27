@@ -1,5 +1,4 @@
 import { state } from "../../state";
-import { initRouter } from "../../router";
 
 export function initResults(params) {
   const initialDiv = document.createElement("div");
@@ -8,7 +7,6 @@ export function initResults(params) {
   const backgroundURL = require("url:../../img/fondo.svg");
 
   const currentState = state.getState();
-  console.log(currentState);
 
   const lastComputerPlay = currentState.currentGame.computerPlay;
   const lastPlayerPlay = currentState.currentGame.myPlay;
@@ -16,18 +14,19 @@ export function initResults(params) {
 
   var playerScore = 0;
   var computerScore = 0;
+  var backgroundColor = "rgba(137, 73, 73, 0.9)";
 
   var whoWin = state.whoWins(lastPlayerPlay, lastComputerPlay);
-  console.log(whoWin);
-  console.log(history);
+
   for (let play of history) {
-    // console.log(state.whoWins(play.myPlay, play.computerPlay));
     var won = state.whoWins(play.myPlay, play.computerPlay);
     if (won) {
       playerScore++;
+      backgroundColor = "rgba(136, 137, 73, 0.9);";
     }
     if (!won) {
       computerScore++;
+      backgroundColor = "rgba(137, 73, 73, 0.9)";
       won = false;
     }
     if (won == undefined) {
@@ -72,7 +71,7 @@ export function initResults(params) {
       height: 100vh;
       z-index: 1;
       position: fixed;
-      background-color: rgba(137, 73, 73, 0.9);
+      background-color: ${backgroundColor};
     }
 
     .button{
@@ -122,9 +121,7 @@ export function initResults(params) {
     .finished{
       display: none;
     }
-          `;
-
-  // const choice = [piedraSel, papelSel, tijeraSel];
+  `;
 
   const button = initialDiv.querySelector(".button");
   button.addEventListener("click", () => {

@@ -5,17 +5,17 @@ type Game = {
 };
 
 export const state = {
-  data: {
-    currentGame: {
-      myPlay: "",
-      computerPlay: "",
-    },
-    history: [{ myPlay: "tijera", computerPlay: "tijera" }],
-    results: {
-      computer: 0,
-      player: 0,
-    },
-  },
+  // data: {
+  //   currentGame: {
+  //     myPlay: "",
+  //     computerPlay: "",
+  //   },
+  //   history: [{ myPlay: "tijera", computerPlay: "tijera" }],
+  //   results: {
+  //     computer: 0,
+  //     player: 0,
+  //   },
+  // },
   listeners: [],
   subscribe(callback: (any) => any) {
     // recibe callbacks para ser avisados posteriormente

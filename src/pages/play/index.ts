@@ -34,7 +34,7 @@ export function initPlay(param) {
     }
 
     @media(min-width:768px){
-      play-selection{
+      .play-selection{
         width: 250px;
       }
     }
@@ -67,7 +67,7 @@ export function initPlay(param) {
       align-items: flex-end;
       justify-content: space-around;
       position: relative;
-      top: 20px;
+      top: 70px;
     }
     @media(min-width: 768px){
       .play-div{
@@ -79,7 +79,7 @@ export function initPlay(param) {
     .computer-play{
       transform: rotate(180deg);
       position: relative;
-      top: 60px;
+      top: 30px;
     }
     @media(min-width: 768px){
       .computer-play{
@@ -138,6 +138,19 @@ export function initPlay(param) {
     papelEl.classList.replace("enabled", "disabled");
     piedraEl.classList.replace("enabled", "disabled");
   });
+
+  const timeToPlay = setInterval(() => {
+    const tijeraClicked = tijeraEl.classList.contains("disabled");
+    const papelClicked = papelEl.classList.contains("disabled");
+    const piedraClicked = piedraEl.classList.contains("disabled");
+
+    if (tijeraClicked && papelClicked && piedraClicked) {
+      alert("No se seleccionó nada, recargar");
+      location.reload();
+    }
+
+    clearInterval(timeToPlay);
+  }, 3100);
 
   const showPlay = setInterval(() => {
     const piedraEl = initialDiv.querySelector("#piedra");
