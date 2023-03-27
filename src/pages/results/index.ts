@@ -1,6 +1,7 @@
 import { state } from "../../state";
+import { initRouter } from "../../router";
 
-export function initResults(param) {
+export function initResults(params) {
   const initialDiv = document.createElement("div");
   const style = document.createElement("style");
 
@@ -16,8 +17,8 @@ export function initResults(param) {
   var playerScore = 0;
   var computerScore = 0;
 
-  var won = true;
-
+  var whoWin = state.whoWins(lastPlayerPlay, lastComputerPlay);
+  console.log(whoWin);
   console.log(history);
   for (let play of history) {
     // console.log(state.whoWins(play.myPlay, play.computerPlay));
@@ -30,72 +31,105 @@ export function initResults(param) {
       won = false;
     }
     if (won == undefined) {
-      console.log("Enri puto");
+      console.log("Empate");
     }
   }
 
   initialDiv.innerHTML = `
-        <div class="playground-div">
-            <score-el won="true" computer-score="${computerScore}" player-score="${playerScore}"></score-el>
+      <div class="main-wrapper">
+        <div class="score-div">
+              <score-el won="${whoWin}" computer-score="${computerScore}" player-score="${playerScore}"></score-el>
 
-            <div class="computer-play">
-              <play-selection selection="" class="enabled" ></play-selection>
-            </div>
-
-
-            <div class="play-div">
-                <play-selection selection="}" class="enabled" ></play-selection>
-            </div>
+              <custom-button class="button" text="Volver a jugar"></custom-button>
         </div>
-    `;
+
+          <div class="playground-div">
+              <div class="computer-play">
+                <play-selection selection="${lastComputerPlay}" class="disabled"></play-selection>
+          </div>
+
+          <div class="play-div">
+              <play-selection selection="${lastPlayerPlay}" class="disabled"></play-selection>
+          </div>
+      </div>
+      `;
 
   style.textContent = `
-              .playground-div{
-                  font-family: var(--main-font);
-                  background-image: url(${backgroundURL});
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: space-between;
-                  align-items: center;
-                  height: 100vh;
-              }
-              
-              .disabled{
-                position: relative;
-                top: -90px;
-                opacity: 45%;
-              }
+    .main-wrapper{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .score-div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      position: fixed;
+      background-color: rgba(137, 73, 73, 0.9);
+    }
 
-              .enabled{
-                position: relative;
-                top: -150px;
-              }
+    .button{
+      margin: 15px;
+    }
 
-              .play-div{
-                height: 150px;
-                display: flex;
-                align-items: flex-end;
-                justify-content: space-around;
-              }
+    .playground-div{
+        font-family: var(--main-font);
+        background-image: url(${backgroundURL});
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .disabled{
+      position: relative;
+      top: -90px;
+      opacity: 45%;
+    }
 
-              .computer-play{
-                transform: rotate(180deg)
-              }
+    .enabled{
+      position: relative;
+      top: -150px;
+    }
 
-              .off{
-                display: none;
-              }
+    .play-div{
+      height: 150px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+    }
 
-              .on{
-                display: inherit;
-              }
+    .computer-play{
+      transform: rotate(180deg)
+    }
 
-              .finished{
-                display: none;
-              }
+    .off{
+      display: none;
+    }
+
+    .on{
+      display: inherit;
+    }
+
+    .finished{
+      display: none;
+    }
           `;
 
   // const choice = [piedraSel, papelSel, tijeraSel];
+
+  const button = initialDiv.querySelector(".button");
+  button.addEventListener("click", () => {
+    params.goTo("/play");
+  });
 
   initialDiv.appendChild(style);
 

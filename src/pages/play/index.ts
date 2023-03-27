@@ -66,16 +66,24 @@ export function initPlay(param) {
       display: flex;
       align-items: flex-end;
       justify-content: space-around;
+      position: relative;
+      top: 20px;
+    }
+    @media(min-width: 768px){
+      .play-div{
+        position: relative;
+        top: -110px;
+      }
     }
 
     .computer-play{
       transform: rotate(180deg);
       position: relative;
-      top: 140px;
+      top: 60px;
     }
     @media(min-width: 768px){
       .computer-play{
-        top: 580px;
+        top: 400px;
       }
     }
 
@@ -169,6 +177,12 @@ export function initPlay(param) {
 
     clearInterval(showComputerPlay);
   }, 5050);
+
+  const showResults = setInterval(() => {
+    param.goTo("/results");
+
+    clearInterval(showResults);
+  }, 6700);
 
   initialDiv.appendChild(style);
   return initialDiv;

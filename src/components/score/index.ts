@@ -9,7 +9,15 @@ export function scoreEl() {
       const rootDiv = document.createElement("div");
       const style = document.createElement("style");
 
-      const won = this.getAttribute("won");
+      const won = JSON.parse(this.getAttribute("won"));
+      var resultString = "";
+      if (won) {
+        resultString = "Ganaste";
+      }
+      if (!won) {
+        resultString = "Perdiste";
+      }
+
       var imgURL = "";
 
       const playerScore = this.getAttribute("player-score");
@@ -22,21 +30,31 @@ export function scoreEl() {
       }
 
       rootDiv.innerHTML = `
-            <div class="background-star-div">
-                <h1 class="result">Ganaste</h1>
-            </div>
+            <div class="main-score-frame">
+                <div class="background-star-div">
+                  <h1 class="result">${resultString}</h1>
+                </div>
 
-            <div class="score-box">
-              <h2 class="score-title">Score</h2>
+                <div class="score-box">
+                  <p class="score-title">Score</p>
 
-              <div class="score-desc">
-                <h3>Vos: ${playerScore}</h3>
-                <h3>Maquina: ${computerScore}</h3>    
-              </div>
-            </div>
+                  <div class="score-desc">
+                    <p>Vos: ${playerScore}</p>
+                    <p>Maquina: ${computerScore}</p>    
+                  </div>
+                </div>
+            </div>           
         `;
 
       style.textContent = `
+          .main-score-frame{
+            display:flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            font-family: var(--main-font)
+          }
+
           .background-star-div{
               width: 363px;
               height: 363px;
@@ -46,11 +64,32 @@ export function scoreEl() {
               flex-direction: column;
               align-items: center;
               justify-content: center;
+              margin: 15px;
+          }
+
+          .score-box{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 8px solid black;
+            border-radius: 7px;
+            width: 40vw;
+          }
+
+          .score-title{
+            font-size: 46px;
+            margin: 15px 0 5px 0;
+          }
+
+          .score-desc{
+            font-size: 28px;
+            margin: 2px 0;
           }
 
           .result{
             margin: 0 0;
-            font-size: 55px;
+            font-size: 65px;
           }
         `;
       shadow.appendChild(style);
