@@ -146,10 +146,9 @@ export function initPlay(param) {
 
     if (tijeraClicked && papelClicked && piedraClicked) {
       alert("No se seleccionó nada, recargar");
-      location.reload();
+      //Se usa location.reload, ya que si se usa el goTo, entra en bucle.
+        location.reload();
     }
-
-    clearInterval(timeToPlay);
   }, 3100);
 
   const showPlay = setInterval(() => {

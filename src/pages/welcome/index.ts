@@ -38,8 +38,9 @@ export function initWelcome(param) {
         }
 
         .page-title{
-          width: 25vw;
-          height: 45vh;
+          text-align: center;
+          width: 45vw;
+          height: 40vh;
           margin: 45px 0 0 0;
           font-size: 80px;
           color: #009048;

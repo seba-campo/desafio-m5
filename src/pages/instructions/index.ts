@@ -37,7 +37,7 @@ export function initInstructions(param) {
       }
 
       .page-title{
-        width: 55vw;
+        width: 75vw;
         height: 30vh;
         font-size: 40px;
       }
