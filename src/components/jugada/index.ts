@@ -49,14 +49,13 @@ export function playElement() {
               flex-direction: column;
               justify-items: flex-end;
               margin: 0px 0px;
-              height: 100px;
             }
 
             .play-choice{
                 width: 30vw;
                 margin: 0px 0px;   
                 position: relative;   
-                top: -100px      
+                top: 0px      
             }
             @media(min-width: 768px){
               .play-choice{

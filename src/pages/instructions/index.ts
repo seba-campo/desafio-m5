@@ -37,7 +37,7 @@ export function initInstructions(param) {
       }
 
       .page-title{
-        width: 75vw;
+        width: 55vw;
         height: 30vh;
         font-size: 40px;
       }
@@ -49,8 +49,6 @@ export function initInstructions(param) {
         }
       }
 
-      .button-div{}
-
       .play-div{
         display: flex;
         align-items: flex-start;
@@ -60,8 +58,6 @@ export function initInstructions(param) {
       }
       @media(min-width: 768px){
         .play-div{
-          position: relative;
-          top: -200px;
         }
       }
 
@@ -70,7 +66,7 @@ export function initInstructions(param) {
       }
       @media(min-width: 768px){
         .item{
-          height: 400px;
+          height: 1px;
         }
       }
   `;

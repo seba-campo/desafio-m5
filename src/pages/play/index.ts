@@ -41,8 +41,6 @@ export function initPlay(param) {
     
 
     .disabled{
-      position: relative;
-      top: -90px;
       opacity: 45%;
     }
     @media(min-width: 768px){
@@ -53,11 +51,11 @@ export function initPlay(param) {
 
     .enabled{
       position: relative;
-      top: -120px;
+      top: -60px;
     }
     @media(min-width: 768px){
       .enabled{
-        top: -290px;
+        top: -30px;
       }
     }
 
@@ -72,18 +70,17 @@ export function initPlay(param) {
     @media(min-width: 768px){
       .play-div{
         position: relative;
-        top: -110px;
+        top: -40px;
       }
     }
 
     .computer-play{
       transform: rotate(180deg);
       position: relative;
-      top: 30px;
+      top: -10px;
     }
     @media(min-width: 768px){
       .computer-play{
-        top: 400px;
       }
     }
 
@@ -139,17 +136,18 @@ export function initPlay(param) {
     piedraEl.classList.replace("enabled", "disabled");
   });
 
-  const timeToPlay = setInterval(() => {
-    const tijeraClicked = tijeraEl.classList.contains("disabled");
-    const papelClicked = papelEl.classList.contains("disabled");
-    const piedraClicked = piedraEl.classList.contains("disabled");
+  // const timeToPlay = setInterval(() => {
+  //   const tijeraClicked = tijeraEl.classList.contains("disabled");
+  //   const papelClicked = papelEl.classList.contains("disabled");
+  //   const piedraClicked = piedraEl.classList.contains("disabled");
 
-    if (tijeraClicked && papelClicked && piedraClicked) {
-      alert("No se seleccionó nada, recargar");
-      //Se usa location.reload, ya que si se usa el goTo, entra en bucle.
-        location.reload();
-    }
-  }, 3100);
+  //   if (tijeraClicked && papelClicked && piedraClicked) {
+  //     alert("No se seleccionó nada, recargar");
+  //     //Se usa location.reload, ya que si se usa el goTo, entra en bucle.
+  //     location.reload();
+  //   }
+  //   clearInterval(timeToPlay);
+  // }, 3100);
 
   const showPlay = setInterval(() => {
     const piedraEl = initialDiv.querySelector("#piedra");
@@ -190,11 +188,11 @@ export function initPlay(param) {
     clearInterval(showComputerPlay);
   }, 5050);
 
-  const showResults = setInterval(() => {
-    param.goTo("/results");
+  // const showResults = setInterval(() => {
+  //   param.goTo("/results");
 
-    clearInterval(showResults);
-  }, 6700);
+  //   clearInterval(showResults);
+  // }, 6700);
 
   initialDiv.appendChild(style);
   return initialDiv;
