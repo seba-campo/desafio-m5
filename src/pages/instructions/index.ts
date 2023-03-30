@@ -75,7 +75,14 @@ export function initInstructions(param) {
 
   const button = initialDiv.querySelector(".button");
   button.addEventListener("click", () => {
-    param.goTo("/play");
+    const path = location.pathname;
+    if (path == "/desafio-m5/instructions") {
+      // Para rutas en gh-pages
+      param.goTo("/desafio-m5/play");
+    }
+    if (path == "/instructions") {
+      param.goTo("/play_local");
+    }
   });
 
   return initialDiv;

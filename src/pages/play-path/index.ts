@@ -1,6 +1,6 @@
 import { state } from "../../state";
 
-export function initPlay(param) {
+export function initPlayPath(param) {
   const initialDiv = document.createElement("div");
   const style = document.createElement("style");
   const backgroundURL = require("url:../../img/fondo.svg");
@@ -143,18 +143,14 @@ export function initPlay(param) {
     const piedraClicked = piedraEl.classList.contains("disabled");
 
     console.log("Hola");
-    // if (tijeraClicked && papelClicked && piedraClicked) {
-    //   //Se usa location.reload, ya que si se usa el goTo, entra en bucle.
-    //   clearInterval(timeToPlay);
-    //   console.log(path);
-    //   if (path == "/desafio-m5/play") {
-    //     alert("No se seleccionó nada, recargar");
-    //     param.goTo("/desafio-m5/play");
-    //   } else {
-    //     alert("No se seleccionó nada, recargar");
-    //     param.goTo("/play");
-    //   }
-    // }
+    if (tijeraClicked && papelClicked && piedraClicked) {
+      //Se usa location.reload, ya que si se usa el goTo, entra en bucle.
+      clearInterval(timeToPlay);
+      console.log(path);
+      if (path == "/desafio-m5/play") {
+        location.reload();
+      }
+    }
     clearInterval(timeToPlay);
   }, 3100);
 
@@ -198,9 +194,11 @@ export function initPlay(param) {
   }, 5050);
 
   const showResults = setInterval(() => {
-    const path = location.pathname;
-    if (path == "/results") {
-      location.reload();
+    if (path == "/desafio-m5/play") {
+      // Para rutas en gh-pages
+      param.goTo("/desafio-m5/results");
+    } else {
+      param.goTo("/results");
     }
 
     clearInterval(showResults);

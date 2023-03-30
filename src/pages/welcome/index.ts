@@ -54,7 +54,6 @@ export function initWelcome(param) {
         }
 
         .play-div{
-          height: 150px;
           display: flex;
           align-items: flex-end;
           justify-content: space-around;
@@ -76,7 +75,14 @@ export function initWelcome(param) {
 
   const button = initialDiv.querySelector(".button");
   button.addEventListener("click", () => {
-    param.goTo("/instructions");
+    const path = location.pathname;
+    if (path == "/desafio-m5/welcome") {
+      // Para rutas en gh-pages
+      param.goTo("/desafio-m5/instructions");
+    }
+    if (path == "/welcome") {
+      param.goTo("/instructions");
+    }
   });
 
   return initialDiv;

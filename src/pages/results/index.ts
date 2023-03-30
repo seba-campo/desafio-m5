@@ -1,6 +1,6 @@
 import { state } from "../../state";
 
-export function initResults(params) {
+export function initResults(param) {
   const initialDiv = document.createElement("div");
   const style = document.createElement("style");
 
@@ -125,7 +125,13 @@ export function initResults(params) {
 
   const button = initialDiv.querySelector(".button");
   button.addEventListener("click", () => {
-    params.goTo("/play");
+    const path = location.pathname;
+    if (path == "/desafio-m5/results") {
+      // Para rutas en gh-pages
+      param.goTo("/desafio-m5/play");
+    } else {
+      param.goTo("/play");
+    }
   });
 
   initialDiv.appendChild(style);
