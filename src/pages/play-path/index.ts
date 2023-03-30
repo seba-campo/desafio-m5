@@ -35,53 +35,70 @@ export function initPlayPath(param) {
     }
 
     @media(min-width:768px){
-      .play-selection{
-        width: 250px;
+      play-selection{
+
       }
     }
-    
+
 
     .disabled{
       opacity: 45%;
     }
     @media(min-width: 768px){
       .disabled{
-        top: -240px;
       }
     }
 
     .enabled{
-      position: relative;
-      top: -60px;
     }
     @media(min-width: 768px){
       .enabled{
-        top: -30px;
       }
     }
 
+
     .play-div{
-      height: 150px;
+      max-height: 150px;
       display: flex;
       align-items: flex-end;
       justify-content: space-around;
       position: relative;
       top: 70px;
     }
+    @media(min-width: 530px){
+      .play-div{
+        top: 200px;
+      }
+    }
     @media(min-width: 768px){
       .play-div{
-        position: relative;
         top: -40px;
+      }
+    }
+    @media(min-width: 1650px){
+      .play-div{
+        top: 125px;
       }
     }
 
     .computer-play{
       transform: rotate(180deg);
       position: relative;
-      top: -10px;
+      top: -50px;
+    }
+    @media(min-width: 530px){
+      .computer-play{
+        top: -150px;
+      }
     }
     @media(min-width: 768px){
       .computer-play{
+        top: -55px;
+      }
+    }
+    @media(min-width: 1650px){
+      .computer-play{
+        top: -125px;
       }
     }
 
@@ -145,12 +162,14 @@ export function initPlayPath(param) {
     console.log("Hola");
     if (tijeraClicked && papelClicked && piedraClicked) {
       //Se usa location.reload, ya que si se usa el goTo, entra en bucle.
-      clearInterval(timeToPlay);
       console.log(path);
       if (path == "/desafio-m5/play") {
-        location.reload();
+        alert("REPLAY");
+        window.location.assign("https://seba-campo.github.io/desafio-m5/");
+        // window.stop();
       }
     }
+
     clearInterval(timeToPlay);
   }, 3100);
 
@@ -174,7 +193,6 @@ export function initPlayPath(param) {
       papelEl.classList.add("off");
       piedraEl.classList.add("off");
     }
-
     clearInterval(showPlay);
   }, 5000);
 
@@ -189,7 +207,6 @@ export function initPlayPath(param) {
 
     const computerPlayEl = document.querySelector(".computer-play");
     computerPlayEl.innerHTML = playSelectionEl;
-
     clearInterval(showComputerPlay);
   }, 5050);
 
@@ -200,7 +217,6 @@ export function initPlayPath(param) {
     } else {
       param.goTo("/results");
     }
-
     clearInterval(showResults);
   }, 6700);
 
