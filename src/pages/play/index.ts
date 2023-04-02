@@ -209,8 +209,11 @@ export function initPlay(param) {
 
   const showResults = setInterval(() => {
     const path = location.pathname;
-    if (path == "/results") {
-      location.reload();
+    if (path == "/desafio-m5/play") {
+      // Para rutas en gh-pages
+      param.goTo("/desafio-m5/results");
+    } else {
+      param.goTo("/results");
     }
 
     clearInterval(showResults);

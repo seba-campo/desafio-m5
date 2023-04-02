@@ -31,10 +31,12 @@ export function initInstructions(param) {
           align-items: center;
           height: 100vh;
       }
-
-      .title-h3{
-        margin: 0;
+      @media(min-width: 768px){
+        .title-h3{
+          margin: 55px 0;
+        }
       }
+
 
       .page-title{
         width: 55vw;

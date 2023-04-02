@@ -40,6 +40,8 @@ export function initResults(param) {
               <score-el won="${whoWin}" computer-score="${computerScore}" player-score="${playerScore}"></score-el>
 
               <custom-button class="button" text="Volver a jugar"></custom-button>
+              <custom-button class="restart-score" text="Reiniciar puntaje"></custom-button>
+              
         </div>
 
           <div class="playground-div">
@@ -129,9 +131,15 @@ export function initResults(param) {
     if (path == "/desafio-m5/results") {
       // Para rutas en gh-pages
       param.goTo("/desafio-m5/play");
-    } else {
-      param.goTo("/play");
+    } if(path == "/results") {
+      param.goTo("/play_local");
     }
+  });
+
+  const buttonRestart = initialDiv.querySelector(".restart-score");
+  buttonRestart.addEventListener("click", ()=> {
+    console.log("CLICKEADO RESTART")
+    state.restartScore();
   });
 
   initialDiv.appendChild(style);

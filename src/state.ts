@@ -94,4 +94,12 @@ export const state = {
 
     this.setState(initialState);
   },
+  restartScore(){
+    const cs = this.getState();
+    console.log(cs)
+
+    cs.history = [];
+
+    this.setState(cs); 
+  }
 };
