@@ -212,7 +212,8 @@ export function initPlay(param) {
     if (path == "/desafio-m5/play") {
       // Para rutas en gh-pages
       param.goTo("/desafio-m5/results");
-    } else {
+    }
+    if (path == "/play_local") {
       param.goTo("/results");
     }
 
