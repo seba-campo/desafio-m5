@@ -24,7 +24,7 @@ export function initResults(param) {
       playerScore++;
       backgroundColor = "rgba(136, 137, 73, 0.9);";
     }
-    if (!won) {
+    if (won == false && won != null) {
       computerScore++;
       backgroundColor = "rgba(137, 73, 73, 0.9)";
       won = false;
