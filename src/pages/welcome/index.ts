@@ -39,7 +39,7 @@ export function initWelcome(param) {
 
         .page-title{
           text-align: center;
-          width: 45vw;
+          width: 70vw;
           height: 40vh;
           margin: 45px 0 0 0;
           font-size: 80px;
@@ -64,9 +64,18 @@ export function initWelcome(param) {
           }
         }
 
+        .item{
+          height: 200px;
+          justify-self: flex-end;
+        }
         @media(min-width: 768px){
           .item{
-            height: 400px;
+            height: 250px;
+          }
+        }
+        @media(min-width: 912px){
+          .item{
+            height: 350px;
           }
         }
     `;

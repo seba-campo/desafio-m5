@@ -14,9 +14,9 @@ export function initInstructions(param) {
             </div>
               
             <div class="play-div">
-                <play-selection selection="piedra"></play-selection>
-                <play-selection selection="papel"></play-selection>
-                <play-selection selection="tijera"></play-selection>
+                <play-selection class="item" selection="piedra"></play-selection>
+                <play-selection class="item" selection="papel"></play-selection>
+                <play-selection class="item" selection="tijera"></play-selection>
             </div>
           </div>
       `;
@@ -31,9 +31,13 @@ export function initInstructions(param) {
           align-items: center;
           height: 100vh;
       }
+      
+      .title-h3{
+        margin: 0 ;
+      }
       @media(min-width: 768px){
         .title-h3{
-          margin: 55px 0;
+          margin: 0;
         }
       }
 
@@ -45,7 +49,8 @@ export function initInstructions(param) {
       }
       @media(min-width: 768px){
         .page-title{
-          height: 35vh;
+          width: 65vw;
+          height: 30vh;
           margin: 20px 0;
           font-size: 66px;
         }
@@ -64,11 +69,17 @@ export function initInstructions(param) {
       }
 
       .item{
-        width: 130px;
+        height: 200px;
+        justify-self: flex-end;
       }
       @media(min-width: 768px){
         .item{
-          height: 1px;
+          height: 250px;
+        }
+      }
+      @media(min-width: 912px){
+        .item{
+          height: 350px;
         }
       }
   `;

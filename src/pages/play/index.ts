@@ -63,42 +63,42 @@ export function initPlay(param) {
       align-items: flex-end;
       justify-content: space-around;
       position: relative;
-      top: 70px;
+      top: 10px;
     }
     @media(min-width: 530px){
       .play-div{
-        top: 200px;
+        top: 85px;
       }
     }
     @media(min-width: 768px){
       .play-div{
-        top: -40px;
+        top: -60px;
       }
     }
     @media(min-width: 1650px){
       .play-div{
-        top: 125px;
+        top: 70px;
       }
     }
 
     .computer-play{
       transform: rotate(180deg);
       position: relative;
-      top: -50px;
+      top: -20px;
     }
     @media(min-width: 530px){
       .computer-play{
-        top: -150px;
+        top: -120px;
       }
     }
     @media(min-width: 768px){
       .computer-play{
-        top: -55px;
+        top: 40px;
       }
     }
     @media(min-width: 1650px){
       .computer-play{
-        top: -125px;
+        top: -80px;
       }
     }
 

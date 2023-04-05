@@ -63,17 +63,23 @@ export function scoreEl() {
           }
 
           .background-star-div{
-              width: 363px;
-              height: 363px;
+              width: 220px;
+              height: 220px;
               background-image: url(${imgURL});
-              background-size: 363px;
+              background-size: 220px;
               display: flex;
               flex-direction: column;
               align-items: center;
               justify-content: center;
               margin: 15px;
           }
-
+          @media(min-widht: 768){}
+          
+          .result{
+            margin: 0 0;
+            font-size: 65px;
+          }
+          
           .score-box{
             background-color: white;
             display: flex;
@@ -82,6 +88,7 @@ export function scoreEl() {
             border: 8px solid black;
             border-radius: 7px;
             width: 40vw;
+            height: 200px;
           }
           @media(min-width: 768px){
             .score-box{
@@ -99,10 +106,7 @@ export function scoreEl() {
             margin: 2px 0;
           }
 
-          .result{
-            margin: 0 0;
-            font-size: 65px;
-          }
+          
         `;
       shadow.appendChild(style);
       shadow.appendChild(rootDiv);
