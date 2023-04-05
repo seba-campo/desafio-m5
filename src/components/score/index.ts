@@ -17,6 +17,9 @@ export function scoreEl() {
       if (!won) {
         resultString = "Perdiste";
       }
+      if (won == null) {
+        resultString = "Empate";
+      }
 
       var imgURL = "";
 
@@ -25,7 +28,11 @@ export function scoreEl() {
 
       if (JSON.parse(won)) {
         imgURL = require("url:../../img/won.svg");
-      } else {
+      }
+      if (!JSON.parse(won)) {
+        imgURL = require("url:../../img/lost.svg");
+      }
+      if (JSON.parse(won) == null) {
         imgURL = require("url:../../img/lost.svg");
       }
 

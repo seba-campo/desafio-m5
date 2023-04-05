@@ -73,6 +73,9 @@ export const state = {
     if (computerWins) {
       return false;
     }
+    if (!playerWins && !computerWins) {
+      return null;
+    }
   },
   generateComputerPlay() {
     const posibilities = ["piedra", "papel", "tijera"];
@@ -94,12 +97,11 @@ export const state = {
 
     this.setState(initialState);
   },
-  restartScore(){
+  restartScore() {
     const cs = this.getState();
-    console.log(cs)
 
     cs.history = [];
 
-    this.setState(cs); 
-  }
+    this.setState(cs);
+  },
 };

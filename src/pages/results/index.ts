@@ -29,9 +29,6 @@ export function initResults(param) {
       backgroundColor = "rgba(137, 73, 73, 0.9)";
       won = false;
     }
-    if (won == undefined) {
-      console.log("Empate");
-    }
   }
 
   initialDiv.innerHTML = `
@@ -131,14 +128,15 @@ export function initResults(param) {
     if (path == "/desafio-m5/results") {
       // Para rutas en gh-pages
       param.goTo("/desafio-m5/play");
-    } if(path == "/results") {
+    }
+    if (path == "/results") {
       param.goTo("/play_local");
     }
   });
 
   const buttonRestart = initialDiv.querySelector(".restart-score");
-  buttonRestart.addEventListener("click", ()=> {
-    console.log("CLICKEADO RESTART")
+  buttonRestart.addEventListener("click", () => {
+    console.log("SCORE RESETEADO");
     state.restartScore();
   });
 
