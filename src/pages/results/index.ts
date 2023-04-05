@@ -74,7 +74,7 @@ export function initResults(param) {
     }
 
     .button{
-      margin: 15px;
+      margin: 10px;
     }
 
     .playground-div{

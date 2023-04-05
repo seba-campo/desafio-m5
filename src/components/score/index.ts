@@ -73,12 +73,24 @@ export function scoreEl() {
               justify-content: center;
               margin: 15px;
           }
-          @media(min-widht: 768){}
+          @media(min-width: 768px){
+            .background-star-div{
+              width: 364px;
+              height: 364px;
+              background-size: 364px;
+            }
+          }
           
           .result{
             margin: 0 0;
-            font-size: 65px;
+            font-size: 45px;
           }
+          @media(min-width: 768px){
+            .result{
+              font-size: 65px;s
+            }
+          }
+
           
           .score-box{
             background-color: white;
@@ -106,7 +118,6 @@ export function scoreEl() {
             margin: 2px 0;
           }
 
-          
         `;
       shadow.appendChild(style);
       shadow.appendChild(rootDiv);
