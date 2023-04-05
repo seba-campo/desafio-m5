@@ -138,6 +138,7 @@ export function initResults(param) {
   buttonRestart.addEventListener("click", () => {
     console.log("SCORE RESETEADO");
     state.restartScore();
+    alert("Score reseteado");
   });
 
   initialDiv.appendChild(style);
