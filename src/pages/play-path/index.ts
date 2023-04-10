@@ -24,66 +24,95 @@ export function initPlayPath(param) {
   }
 
   style.textContent = `
-  .welcome-main-frame{
-    font-family: var(--main-font);
-    background-image: url(${backgroundURL});
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 100vh;
-}
+    .playground-div{
+      font-family: var(--main-font);
+      background-image: url(${backgroundURL});
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+    }
 
-.title-h3{
-  margin: 0 ;
-}
-@media(min-width: 768px){
-  .title-h3{
-    margin: 0;
-  }
-}
+    @media(min-width:768px){
+      play-selection{
+
+      }
+    }
 
 
-.page-title{
-  width: 55vw;
-  height: 30vh;
-  font-size: 40px;
-}
-@media(min-width: 768px){
-  .page-title{
-    width: 65vw;
-    height: 30vh;
-    margin: 20px 0;
-    font-size: 66px;
-  }
-}
+    .disabled{
+      opacity: 45%;
+    }
+    @media(min-width: 768px){
+      .disabled{
+      }
+    }
 
-.play-div{
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
-  position: relative;
-  top: 70px;
-}
-@media(min-width: 768px){
-  .play-div{
-  }
-}
+    .enabled{
+    }
+    @media(min-width: 768px){
+      .enabled{
+      }
+    }
 
-.item{
-  height: 200px;
-  justify-self: flex-end;
-}
-@media(min-width: 768px){
-  .item{
-    height: 250px;
-  }
-}
-@media(min-width: 912px){
-  .item{
-    height: 350px;
-  }
-}
+
+    .play-div{
+      max-height: 150px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      position: relative;
+      top: 10px;
+    }
+    @media(min-width: 530px){
+      .play-div{
+        top: 85px;
+      }
+    }
+    @media(min-width: 768px){
+      .play-div{
+        top: -60px;
+      }
+    }
+    @media(min-width: 1650px){
+      .play-div{
+        top: 70px;
+      }
+    }
+
+    .computer-play{
+      transform: rotate(180deg);
+      position: relative;
+      top: -20px;
+    }
+    @media(min-width: 530px){
+      .computer-play{
+        top: -120px;
+      }
+    }
+    @media(min-width: 768px){
+      .computer-play{
+        top: 40px;
+      }
+    }
+    @media(min-width: 1650px){
+      .computer-play{
+        top: -80px;
+      }
+    }
+
+    .off{
+      display: none;
+    }
+
+    .on{
+      display: inherit;
+    }
+
+    .finished{
+      display: none;
+    }
   `;
 
   // <play-selection selection="${}" class="off enabled" id="computer-play"></play-selection>
